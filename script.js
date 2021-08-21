@@ -77,13 +77,14 @@ document.getElementById('urgent-delivery-button').addEventListener('click', func
 document.getElementById('promo-btn').addEventListener('click', function () {
     const productTotalPrice = parseInt(document.getElementById('total-price').innerText);
     const withoutPromoTotal = document.getElementById('promo-total');
-    const promoInput = document.getElementById('promo-input').value;
+    const promoInput = document.getElementById('promo-input');
 
-    if (promoInput == 'stevekaku') {
+    if (promoInput.value == 'stevekaku') {
         const discount = productTotalPrice - productTotalPrice * 20 / 100;
         withoutPromoTotal.innerText = discount;
-    } else if (promoInput == '') {
-        alert('Are You Sure To Miss The Promo Discount???');
+        promoInput.value = '';
+    } else if (promoInput.value == '') {
+        return true;
     } else {
         alert('Wrong Promo Code !!! You Miss The Discount');
     }
