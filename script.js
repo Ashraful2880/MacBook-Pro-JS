@@ -23,6 +23,25 @@ function totalPrice() {
     promoTotal.innerText = netPrice;
 }
 
+// // // // Function For Promo Discount // // // //
+
+function promoCode() {
+    const productTotalPrice = parseInt(document.getElementById('total-price').innerText);
+    const withoutPromoTotal = document.getElementById('promo-total');
+    const promoInput = document.getElementById('promo-input');
+
+    if (promoInput.value == 'stevekaku') {
+        const discount = productTotalPrice - productTotalPrice * 20 / 100;
+        withoutPromoTotal.innerText = discount;
+        promoInput.value = '';
+    } else if (promoInput.value == '') {
+        return true;
+    } else {
+        alert('Wrong Promo Code !!! You Miss The Discount');
+        promoInput.value = '';
+    }
+};
+
 // // // // ClickHandler For Normal(8GB) Memory Button // // // // 
 
 document.getElementById('memory-button').addEventListener('click', function () {
@@ -72,22 +91,9 @@ document.getElementById('urgent-delivery-button').addEventListener('click', func
     totalPrice();
 })
 
-// // // // Promo Code Script Here // // // // 
+// // // // ClickHandler For Promo Button // // // // 
 
 document.getElementById('promo-btn').addEventListener('click', function () {
-    const productTotalPrice = parseInt(document.getElementById('total-price').innerText);
-    const withoutPromoTotal = document.getElementById('promo-total');
-    const promoInput = document.getElementById('promo-input');
-
-    if (promoInput.value == 'stevekaku') {
-        const discount = productTotalPrice - productTotalPrice * 20 / 100;
-        withoutPromoTotal.innerText = discount;
-        promoInput.value = '';
-    } else if (promoInput.value == '') {
-        return true;
-    } else {
-        alert('Wrong Promo Code !!! You Miss The Discount');
-        promoInput.value = '';
-    }
+    promoCode();
 });
 
