@@ -87,6 +87,7 @@ document.getElementById('promo-btn').addEventListener('click', function () {
         return true;
     } else {
         alert('Wrong Promo Code !!! You Miss The Discount');
+        promoInput.value = '';
     }
 });
 
